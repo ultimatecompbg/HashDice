@@ -6,18 +6,19 @@ import java.util.Random;
 
 
 public class Dice {
-    static int throwNumber;
-    static int combinationX;
-    static int combinationY;
+    int throwNumber;
+    String combination = "";
 
-    public ArrayList<Dice> dice(int throwNumber){
-        Dice newDice = new Dice();
+    public static ArrayList<Dice> dice(int throwNumber){
+
         ArrayList<Dice> diceStats = new ArrayList<Dice>();
         Random random = new Random();
         for(int i = 0; i < throwNumber; i++){
-            Dice.throwNumber = throwNumber;
-            Dice.combinationX = (int)(Math.random() * 6) + 1;
-            Dice.combinationY = (int)(Math.random() * 6) + 1;
+            Dice newDice = new Dice();
+            newDice.throwNumber = i + 1;
+            newDice.combination += Integer.toString((int)(Math.random() * 6) + 1);
+            newDice.combination += "x";
+            newDice.combination += Integer.toString((int)(Math.random() * 6) + 1);
             diceStats.add(newDice);
         }
 

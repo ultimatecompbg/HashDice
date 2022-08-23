@@ -10,17 +10,15 @@ public class Test {
     public static void test(ArrayList<Dice> diceStats){
         Scanner scanner = new Scanner(System.in);
         String input = scanner.next();
-        String[] combination = input.split("x");
-        int combinationX = parseInt(combination[0]);
-        int combinationY = parseInt(combination[1]);
         int combinationRolls = 0;
         for(int i = 0; i < diceStats.size(); i++){
             int throwNumber = diceStats.get(i).throwNumber;
-            if(diceStats.get(i).combinationX == combinationX && diceStats.get(i).combinationY == combinationY){
-                System.out.println(String.format("Combination ({0},{1}) thrown at position {2}", combinationX, combinationY, throwNumber));
+            if(diceStats.get(i).combination.equals(input)){
+                combinationRolls++;
+                System.out.printf("Combination (%s) thrown at position %s%n", input, throwNumber);
             }
-            combinationRolls++;
+
         }
-        System.out.println(String.format("Number of rolls: {0}", combinationRolls));
+        System.out.printf("Number of rolls: %s", combinationRolls);
     }
 }
