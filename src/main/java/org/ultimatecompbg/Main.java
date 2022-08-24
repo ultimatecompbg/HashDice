@@ -1,6 +1,7 @@
 package org.ultimatecompbg;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import static org.ultimatecompbg.Dice.dice;
 
@@ -11,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int rolls = scanner.nextInt();
-        ArrayList<Dice> diceStats = dice(rolls);
+        HashMap<String, ArrayList<Integer>> diceStats = dice(rolls);
         printStats(diceStats);
         System.out.println("########TEST########");
         test(diceStats);
